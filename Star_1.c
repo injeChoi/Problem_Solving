@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+/*
+*
+**
+***
+****
+*****
+*/
+
 int main(void)
 {
   unsigned int N;
@@ -22,5 +30,5 @@ int main(void)
     return -1;
   }
 
-  return 0; 
+  return 0;
 }
