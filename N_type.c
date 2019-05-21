@@ -1,15 +1,14 @@
 #include <stdio.h>
 
-int main()
+int main(void)
 {
-  int i, num;
+  unsigned int N;
+  int i;
+  scanf("%d", &N);
 
-  printf("몇까지 출력할까요?: ");
-  scanf("%d", &num);
-
-  if(num<=100000)
+  if(N<=100000)
   {
-    for(i=0;i<num;i++)
+    for(i=0;i<N;i++)
       printf("%d\n", i+1);
   }
 
