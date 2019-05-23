@@ -14,6 +14,7 @@ int main(void)
     sum += num_n[i]-'0';
 
   printf("%d\n", sum);
-  
+
+  free(num_n);
   return 0;
 }
