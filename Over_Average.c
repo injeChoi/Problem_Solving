@@ -37,6 +37,9 @@ int main(void)
       }
     }
     percentage[i] = (double)cnt*100/N;
+    sum = 0;
+    cnt = 0;
+    average = 0.0;
   }
 
   for(i=0;i<C;i++)
