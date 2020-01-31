@@ -1,8 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <deque>
-#include <string>
-#include <queue>
+#include <set>
 using namespace std;
 
 int main(int argc, char const *argv[]) {
@@ -10,87 +8,36 @@ int main(int argc, char const *argv[]) {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  deque<long long> d;
-  priority_queue<string> pq;
   int T; cin >> T;
-
+  int k;
   for (int i = 0; i < T; i++) {
-    int k; cin >> k;
+    multiset<int> ms;
+    cin >> k;
 
-    for (int j = 0; j < k; j++) {
+    for(int j = 0; j < k; j++) {
       char c; cin >> c;
-      long long num;
+      int num; cin >> num;
 
-      if(c == 'I') {
-        cin >> num;
-        d.push_back(num);
-      }
+      if(c == 'I')
+        ms.insert(num);
 
-      else {
-        cin >> num;
-        if(!d.empty()) {
-          if(num == 1)
-            d.pop_back();
-          else
-            d.pop_front();
-        }
+      else if(c == 'D') {
+        if(ms.empty())
+          continue;
+
+        else if(num == 1)
+          ms.erase(--ms.end());
+
         else
-          pq.push("EMPTY");
+          ms.erase(ms.begin());
       }
-
-      sort(d.begin(), d.end());
     }
 
-    if(!d.empty())
-      cout << d.back() << " " << d.front() << "\n";
+    if(ms.empty())
+      cout << "EMPTY" << "\n";
     else
-      cout << pq.top() << "\n";
+      cout << *(--ms.end()) << " " << *(ms.begin()) << "\n";
   }
 
   return 0;
 }
-
-// #include <map>
-// #include <iostream>
-// using namespace std;
-//
-// int main(){
-//   int T; cin >> T;
-//
-//   for(int i = 0; i < T; i++){
-//     map<int,int> m;
-//     int N; cin >> N;
-//
-//     for(int j = 0; j < N; j++){
-//       char c; int n;
-//       cin >> c; cin >> n;
-//
-//       if(c == 'I')
-//         if(m.find(n) == m.end())
-//           m[n]=0;
-//         else
-//           m[n]++;
-//
-//       else if(c == 'D' && m.size()) {
-//         map<int,int>::iterator it;
-//         if(n == 1)
-//           it = --m.end();
-//         else
-//           it = m.begin();
-//
-//         if(it->second==0)
-//           m.erase(it);
-//         else
-//           it->second--;
-//       }
-//
-//     }
-//
-//     if(m.size() == 0)
-//       cout << "EMPTY" << "\n";
-//     else
-//       cout << (--m.end())->first << " " << m.begin()->first << "\n";
-//   }
-//
-//   return 0;
-// }
