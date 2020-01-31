@@ -7,38 +7,40 @@ int main(int argc, char const *argv[]) {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
-  stack<pair<int, int> > s;
+  stack<int> s[7];  // 기타는 6줄
   int N, P;
   int cnt = 0;
 
   cin >> N >> P;
   for (int i = 0; i < N; i++) {
-    int line, fret;
-    cin >> line >> fret;
+    pair<int, int> p;
+    cin >> p.first >> p.second;
 
-    if(s.empty()) {
-      s.push({line, fret});
+    if(s[p.first].empty()) {
+      s[p.first].push(p.second);
       cnt++;
     }
 
     else {
-      if(s.top().first == line) {
-        if(s.top().second < fret) {
-          s.push({line, fret});
-          cnt++;
-        }
-        else if(s.top().second > fret) {
-          while(s.top().second <= line) {
-            s.pop();
-            cnt++;
-          }
-          s.push({line, fret});
-          cnt++;
-        }
+      if(s[p.first].top() < p.second) {
+        s[p.first].push(p.second);
+        cnt++;
       }
 
-      else if(s.top().first != line) {
+      else if(s[p.first].top() == p.second)
+        continue;
 
+      else {
+        while(!s[p.first].empty() && s[p.first].top() > p.second) {
+          s[p.first].pop();
+          cnt++;
+        }
+
+        if(!s[p.first].empty() && s[p.first].top() == p.second)
+          continue;
+
+        s[p.first].push(p.second);
+        cnt++;
       }
     }
   }
