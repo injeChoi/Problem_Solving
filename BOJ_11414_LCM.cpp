@@ -1,29 +1,15 @@
 #include <iostream>
 #include <algorithm>
+#include <string>
+#include <sstream>
 using namespace std;
 typedef long long ll;
 const ll mod = 1000000007LL;
 
+ll A, B, C, LCM;
+
 ll GCD(ll a, ll b) {
-  ll tmp, n;
-
-  if (a < b) {
-    tmp = a;
-    a = b;
-    b = tmp;
-  }
-
-  while (b != 0) {
-    n = a % b;
-    a = b;
-    b = n;
-  }
-
-  return a;
-}
-
-ll LCM(ll a, ll b) {
-  return a * b / GCD(a, b);
+  return (b == 0) ? a : GCD(b, a % b);
 }
 
 int main(int argc, char const *argv[]) {
@@ -31,7 +17,6 @@ int main(int argc, char const *argv[]) {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  ll A, B;
   cin >> A >> B;
 
   if(A < B)
@@ -40,33 +25,35 @@ int main(int argc, char const *argv[]) {
   if(A == B || A == B+1)
     cout << "1" << "\n";
 
-  ll res = (B / (A-B) + 1) * (A-B) - B;
-  ll lcm = LCM(A+res, B+res);
+  else {
+    ll res = (B / (A-B) + 1) * (A-B) - B;
+    ll lcm = (A+res)*(B+res) / GCD(A+res, B+res);
 
-  for (int i = 2; i*i <= A-B; i++) {
-    if(A-B % i == 0) {
-      ll t = B / i + 1;
-       ll N = t * i - B;
-      ll tmp = LCM(A+N, B+N);
+    for (int i = 2; i*i <= A-B; ++i) {
+      if((A-B) % i == 0) {
+        ll t = B / i + 1;
+        ll N = t * i - B;
+        ll tmp = (A+N)*(B+N) / GCD(A+N,B+N);
 
-      if(lcm > tmp) {
-        res = N;
-        lcm = tmp;
-      }
+        if(lcm > tmp) {
+          res = N;
+          lcm = tmp;
+        }
 
-      ll rev = (A-B) / i;
-      t = B / rev + 1;
-      N = t * rev - B;
-      tmp = LCM(A+N, B+N);
+        ll rev = (A-B) / i;
+        t = B / rev + 1;
+        N = t * rev - B;
+        tmp = (A+N)*(B+N) / GCD(A+N,B+N);;
 
-      if(lcm > tmp) {
-        res = N;
-        lcm = tmp;
+        if(lcm > tmp) {
+          res = N;
+          lcm = tmp;
+        }
       }
     }
-  }
 
-  cout << res << "\n";
+    cout << res << "\n";
+  }
 
   return 0;
 }
