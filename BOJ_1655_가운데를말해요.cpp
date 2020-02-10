@@ -1,42 +1,42 @@
 #include <iostream>
 #include <algorithm>
-#include <map>
+#include <queue>
 using namespace std;
+
+priority_queue<int, vector<int>, less<int> > max_heap;
+priority_queue<int, vector<int>, greater<int> > min_heap;
 
 int main(int argc, char const *argv[]) {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
 
-  multimap<int, int> m;
-  int N, num, mid;
-  cin >> N;
+  int N; cin >> N;
 
-  for (int i = 1; i <= N; i++) {
-    cin >> num;
+  for (int i = 0; i < N; i++) {
+    int num; cin >> num;
 
-    if(m.empty()) {
-      m.insert({num, i});
-      multimap<int, int>::iterator iter;
-      for (iter = m.begin(); iter != m.end(); iter++)
-        cout << iter->second << "\n";
+    if(max_heap.empty())
+      max_heap.push(num);
+
+    else if(max_heap.size() == min_heap.size())
+      max_heap.push(num);
+
+    else
+      min_heap.push(num);
+
+    if(!max_heap.empty() && !min_heap.empty() && max_heap.top() >= min_heap.top()) {
+      int max_top = max_heap.top();
+      int min_top = min_heap.top();
+
+      max_heap.pop();
+      min_heap.pop();
+
+      max_heap.push(min_top);
+      min_heap.push(max_top);
     }
 
-    else {
-      m.insert({num, i});
-      int mid;
-      if(m.size() % 2 == 0)
-        mid = m.size() / 2;
-
-      else
-        mid = m.size() / 2 + 1;
-
-      multimap<int, int>::iterator iter;
-      for (iter = m.begin(); iter != m.end(); iter++) {
-        if(iter->second == mid)
-          cout << iter->first << "\n";
-      }
-    }
+    cout << max_heap.top() << "\n";
   }
 
   return 0;
