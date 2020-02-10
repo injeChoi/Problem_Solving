@@ -1,30 +1,29 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 using namespace std;
 
-int Floor[1000];
-int dp[1000];
-
 int main(int argc, char const *argv[]) {
-  int N, score = 0;
-  //freopen("input.txt", "r", stdin);
-  cin >> N;
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
 
-  for (int i = 0; i < N; i++) {
+  int N; cin >> N;
+  vector<int> dp(1000);
+  vector<int> cache(1000);
+  int score;
+  for (int i = 1; i <= N; i++) {
     cin >> score;
-    Floor[i] = score;
+    dp[i] = score;
   }
 
-  dp[0] = Floor[0];
-  dp[1] = max(Floor[0]+Floor[1],Floor[1]);
-  dp[2] = max(Floor[0]+Floor[2],Floor[1]+Floor[2]);
+  cache[1] = dp[1];
+  cache[2] = max(dp[1] + dp[2], dp[2]);
+  cache[3] = max(dp[2] + dp[3], dp[1] + dp[3]);
 
-  for (int i = 3; i < N; i++) {
-      dp[i] = max(dp[i-3] + Floor[i-1] + Floor[i], dp[i-2] + Floor[i]);
-      score = dp[i];
-    }
+  for (int i = 4; i <= N; i++)
+    cache[i] = max(cache[i-3] + dp[i-1] + dp[i], cache[i-2] + dp[i]);
 
-  cout << score << endl;
-
+  cout << cache[N] << "\n";
   return 0;
 }
