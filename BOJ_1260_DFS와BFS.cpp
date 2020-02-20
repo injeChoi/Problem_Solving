@@ -57,7 +57,7 @@ int main(int argc, char const *argv[]) {
   DFS(V);
   cout << "\n";
 
-  for (int i = 1; i <= 1000; i++) 
+  for (int i = 1; i <= 1000; i++)
     visited[i] = 0;
 
   BFS(V);
