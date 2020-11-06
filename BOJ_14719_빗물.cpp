@@ -1,5 +1,6 @@
 /*
 https://www.acmicpc.net/problem/14719
+https://imnotabear.tistory.com/217
 왼쪽에서 부터 오른쪽, 오른쪽에서 부터 왼쪽으로 제일 큰걸
 찾아가는 방법이 제일 중요했다.
 그리고 나서 찾은 값들 중 작은걸 택해서
