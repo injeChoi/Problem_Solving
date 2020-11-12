@@ -24,9 +24,9 @@ int recursive(int start, int end) {
     int round = 0;
     for (int i = start; i < end; i++) { 
         if (str[i] == '(') { 
-            round = str[i - 1] - '0'; 
-            result += round * recursive(i + 1, bracket[i]) - 1; 
-            i = bracket[i];
+            round = str[i - 1] - '0'; //정수로 만들기 
+            result += round * recursive(i + 1, bracket[i]) - 1; //result가 ')' 개수 까지 세므로 -1
+            i = bracket[i]; //')' 뒤로 이동 
             continue; 
         } 
         result++; 
@@ -40,10 +40,10 @@ int main(void) {
     cin >> str; 
     
     for (int i = 0; i < str.length(); i++) { 
-        if (str[i] == '(') 
+        if (str[i] == '(') // '(' 시작점 표기 
             s.push(i); 
         
-        else if (str[i] == ')') { 
+        else if (str[i] == ')') {  // '('과 쌍이 되는 ')' 지점 표기 
             bracket[s.top()] = i; 
             s.pop(); 
         } 
