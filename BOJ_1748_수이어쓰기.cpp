@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-string s;
+int input;
 long long cnt;
 
 
@@ -15,10 +15,14 @@ void init() {
 
 int main(int argc, char const *argv[]) {
     init();
-    cin >> s;
-    int N = stoi(s);
-    int tmp1 = 9, tmp2 = 1;
-    int digit = s.length();
+    cin >> input;
+    int tmp1 = 9, tmp2 = 1, n = input;
+    int digit = 1 ;
+
+    while (n / 10 != 0) {
+        digit++;
+        n = n / 10;
+    }
 
     for (int i = 1; i < digit; i++) {
         cnt += tmp1 * i;
@@ -26,7 +30,7 @@ int main(int argc, char const *argv[]) {
         tmp2 *= 10;
     }
 
-    cnt += (N - tmp2 + 1) * digit;
+    cnt += (input - tmp2 + 1) * digit;
     cout << cnt << endl;
     
     return 0;
