@@ -15,7 +15,7 @@ void init() {
 int main(int argc, char const *argv[]) {
     init();
     cin >> input;
-    int tmp1 = 9, n = input, digit = 1 ;
+    int tmp = 9, n = input, digit = 1 ;
 
     while (n / 10 != 0) {
         digit++;
@@ -23,8 +23,8 @@ int main(int argc, char const *argv[]) {
     }
 
     for (int i = 1; i < digit; i++) {
-        cnt += tmp1 * i;
-        tmp1 *= 10;
+        cnt += tmp * i;
+        tmp *= 10;
     }
 
     cnt += (input - pow(10 ,digit-1) + 1) * digit;
