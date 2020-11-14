@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <cmath>
 using namespace std;
 
 int input;
@@ -16,8 +15,7 @@ void init() {
 int main(int argc, char const *argv[]) {
     init();
     cin >> input;
-    int tmp1 = 9, tmp2 = 1, n = input;
-    int digit = 1 ;
+    int tmp1 = 9, tmp2 = 1, n = input, digit = 1 ;
 
     while (n / 10 != 0) {
         digit++;
