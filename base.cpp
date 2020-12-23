@@ -11,7 +11,7 @@ void init() {
 
 int main(int argc, char const *argv[]) {
     init();
-    freopen("input.txt", "r", stdin);
+    //freopen("input.txt", "r", stdin);
 
     return 0;
 }
