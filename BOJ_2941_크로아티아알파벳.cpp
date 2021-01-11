@@ -13,9 +13,8 @@ int main(int argc, char const *argv[]) {
     int idx;
     string str;
     cin >> str;
-    for(int i = 0; i < croatian.size(); i++)
-    {
-        while(1){
+    for(int i = 0; i < croatian.size(); i++) {
+        while(1) {
             idx = str.find(croatian[i]);
             if(idx == string::npos) // croatian 알파벳을 찾을 수 없으면 종료 
                 break;
