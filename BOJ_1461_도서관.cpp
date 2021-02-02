@@ -2,11 +2,8 @@
 using namespace std;
 
 int N, M;
-int book;
-int sum, idx, Min = 20000, near, target;
-vector<int> v;
-vector<int> abs_v;
-bool even = false, odd = false;
+int book, sum, idx, far;
+vector<int> pv, nv;
 
 void init() {
     ios_base::sync_with_stdio(false);
@@ -14,61 +11,39 @@ void init() {
     cout.tie(NULL);
 }
 
-void solve(int n1, int n2) {
-    int elements = n2 - n1 + 1;
-
-    if (elements % 2 == 0) {
-        for (int i = n2; i >= n1; i-=M) {
-            if (book > 0) {
-                sum += abs(v[i] * 2);
-                book--;
-            }
-            else 
-                sum += abs(v[i]);
-        }
-    }
-    else {
-        sum += v[n2];
-        book--;
-        for (int i = n1; i <= n2; i+=M) {
-            if (book > 0) {
-                sum += abs(v[i] * 2);
-                book = book - M;
-            }
-            else 
-                sum += abs(v[i]);
-        }
-    }
-}
+bool cmp (int a, int b) { return a > b; }
 
 int main(int argc, char const *argv[]) {
     init();
-    freopen("input.txt", "r", stdin);
     cin >> N >> M;
+
     for (int i = 0; i < N; i++) {
         cin >> book;
-        v.push_back(book);
-        abs_v.push_back(abs(book));
+        if (book > 0) pv.push_back(book);
+        else nv.push_back(-(book));
     }
-    sort(v.begin(), v.end());
 
-    for (int i = 0; i < N; i++) {
-        if (abs(v[i] - target) < Min) {
-            Min = abs(v[i] - target);
-            idx = i;
+    sort(pv.begin(), pv.end(), cmp);
+    sort(nv.begin(), nv.end(), cmp);
+
+    for (int i = 0; i < pv.size(); i += M) {
+        if (pv[i] > far) {
+            sum += pv[i];
+            sum += far;
+            far = pv[i];
         }
+        else
+            sum += pv[i] * 2;
     }
 
-    if (v[idx] > 0) even = true;
-    else odd = true;
-
-    if (even) {
-        solve(0, idx-1);
-        solve(idx, N-1);
-    }
-    else {
-        solve(0, idx);
-        solve(idx+1, N-1);
+    for (int i = 0; i < nv.size(); i += M) {
+        if (nv[i] > far) {
+            sum += nv[i];
+            sum += far;
+            far = nv[i];
+        }
+        else
+            sum += nv[i] * 2;
     }
 
     cout << sum << endl;
