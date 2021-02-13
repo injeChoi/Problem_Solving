@@ -31,7 +31,6 @@ void BFS(int sx, int sy) {
             cout << graph[x][y] << endl;
             break;
         }
-
         for (int i = 0; i < 8; i++) {
             int nx = x + dx[i];
             int ny = y + dy[i];
