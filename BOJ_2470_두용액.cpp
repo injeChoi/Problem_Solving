@@ -36,5 +36,6 @@ int main(int argc, char const *argv[]) {
     cout << resA << " " << resB << endl;
   else
     cout << resB << " " << resA << endl;
+    
   return 0;
 }
