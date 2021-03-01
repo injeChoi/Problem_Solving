@@ -20,6 +20,5 @@ int main(int argc, char const *argv[]) {
       cout << P[N] << endl;
     }
   }
-
   return 0;
 }
