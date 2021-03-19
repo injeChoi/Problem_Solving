@@ -43,6 +43,5 @@ int main(int argc, char const *argv[]) {
             line += "--";
         }
     }
-
     return 0;
 }
