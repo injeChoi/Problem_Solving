@@ -13,6 +13,7 @@ void init() {
 
 int main(int argc, char const *argv[]) {
     init();
+    freopen("input.txt", "r", stdin);
     cin >> N;
     for (int i = 0; i < N; i++) {
         int num; cin >> num;
@@ -27,6 +28,7 @@ int main(int argc, char const *argv[]) {
 
     for (int i = 0; i < v.size(); i++) {
         string line = "";
+        bool check = false;
         for (int j = 0; j < v[i].size(); j++) {
             if (i == 0) {
                 cout << line << v[i][j] << endl;
@@ -34,13 +36,20 @@ int main(int argc, char const *argv[]) {
                 continue;
             }
             else {
-                if (v[i][j] == v[i-1][j]) {
+                if (!check && v[i][j] == v[i-1][j]) {
                     line += "--";
                     continue;
                 }
+                check = true;
+                if (check && v[i][j] != v[i-1][j]) {
+                    cout << line << v[i][j] << endl;
+                    line += "--";
+                }
+                else if (check && v[i][j] == v[i-1][j]) {
+                    cout << line << v[i][j] << endl;
+                    line += "--";
+                }
             }
-            cout << line << v[i][j] << endl;
-            line += "--";
         }
     }
     return 0;
