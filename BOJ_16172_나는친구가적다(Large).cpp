@@ -2,7 +2,6 @@
 using namespace std;
 
 string tmp, input;
-vector<char> v;
 char filtered[200001], look[200001];
 
 void init() {
