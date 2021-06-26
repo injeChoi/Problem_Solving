@@ -41,6 +41,7 @@ int func(int y, int x) {
 int main(int argc, char const *argv[]) {
     init();
     cin >> N;
+    
     for (int i = 0; i < N; i++) {
         total += func(0, i);    // 특정 열에서 배치 찾기 시작 
     }
