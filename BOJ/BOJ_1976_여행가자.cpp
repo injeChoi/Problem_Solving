@@ -36,7 +36,6 @@ int main(int argc, char const *argv[]) {
 
     for (int i = 1; i <= N; i++) 
         parent[i] = i;
-
     for (int i = 1; i <= N; i++) 
         for (int j = 1; j <= N; j++) 
             cin >> path[i][j];
