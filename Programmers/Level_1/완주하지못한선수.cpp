@@ -1,38 +1,29 @@
+/*
+* map에 insert하는 방법은 두 가지 
+* map<string, int> m 으로 선언 
+* 1. m.insert({"key", 123});
+* 2. m["key"] = 123; 
+* operator [] 는 find-or-add operator 역할을 수행한다 
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
-void init() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-}
-// auto ret = mapParticipant.insert({participant[i], cnt});
-// if (!ret.second) {
-//     cnt = mapParticipant.find(participant[i]);
-// }
 string solution(vector<string> participant, vector<string> completion) {
     string answer = "";
-    map<string, int> mapParticipant;
+    unordered_map<string, int> mapParticipant;
     for (int i = 0; i < participant.size(); i++) {
         string name = participant[i];
-        mapParticipant[name];
+        ++mapParticipant[name];
     } 
+    for (string iter : completion) {
+        --mapParticipant[iter];
+    }
     for (auto iter : mapParticipant) {
-        cout << iter.first << " " << iter.second << endl;
+        if (iter.second > 0) {
+            answer = iter.first;
+            break;
+        }
     }
     return answer;
-}
-
-int main(int argc, char const *argv[]) {
-    init();
-    //freopen("input.txt", "r", stdin);
-    vector<string> participant;
-    participant.push_back("leo");
-    participant.push_back("kiki");
-    participant.push_back("eden");
-    vector<string> completion;
-    participant.push_back("eden");
-    participant.push_back("kiki");
-    cout << solution(participant, completion) << endl;
-    return 0;
 }
