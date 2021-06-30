@@ -20,7 +20,6 @@ string solution(vector<string> participant, vector<string> completion) {
     for (auto iter : mapParticipant) {
         cout << iter.first << " " << iter.second << endl;
     }
-    
     return answer;
 }
 
