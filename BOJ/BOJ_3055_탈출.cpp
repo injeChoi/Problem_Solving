@@ -9,12 +9,6 @@ int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, 1, -1};
 queue<pair<int, int> > wq;
 
-void init() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-}
-
 void water_BFS() {
     while(!wq.empty()) {
         int x = wq.front().first;
@@ -66,7 +60,6 @@ void BFS(int r, int c) {
 }
 
 int main(int argc, char const *argv[]) {
-    init();
     cin >> R >> C;
 
     for (int i = 0; i < R; i++) {
@@ -76,9 +69,8 @@ int main(int argc, char const *argv[]) {
                 wq.push({i, j});
         } 
     }
-           
     water_BFS();
-        
+
     for (int i = 0; i < R; i++) 
         for (int j = 0; j < C; j++) 
             if (arr[i][j] == 'S') 
@@ -91,8 +83,7 @@ int main(int argc, char const *argv[]) {
                     cout << visited[i][j] << endl;
                 
                 else 
-                    cout << "KAKTUS" << endl;
-                
+                    cout << "KAKTUS" << endl;  
             }
         }
     }
