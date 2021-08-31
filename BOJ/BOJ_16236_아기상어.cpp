@@ -1,161 +1,109 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// int N, cnt, shark = 2;
-// int arr[21][21];
-// bool visited[21][21];
-// int dx[4] = {-1, 1, 0, 0};
-// int dy[4] = {0, 0, -1, 1};
-
-// void init() {
-//     ios_base::sync_with_stdio(false);
-//     cin.tie(NULL);
-//     cout.tie(NULL);
-// }
-
-// void BFS(int a, int b) {
-//     visited[a][b] = true;
-//     queue<pair<int, int> > q;
-//     q.push({a, b});
-//     while (!q.empty()) {
-//         int x = q.front().first;
-//         int y = q.front().second;
-//         q.pop();
-
-//         for (int i = 0; i < 4; i++) {
-//             int nx = x + dx[i];
-//             int ny = y + dy[i];
-
-//             if (nx < 0 || ny < 0 || nx >= N || ny >= N || !visited[nx][ny]) 
-//                 continue;
-
-//             if (arr[nx][ny] == 0) {
-//                 cnt++;
-//                 q.push({nx, ny});
-//                 visited[nx][ny] = true;
-//             }
-//             else if (arr[nx][ny] < shark) {
-//                 cnt++; shark++;
-//                 arr[nx][ny] = 0;
-//                 q.push({nx, ny});
-//                 visited[nx][ny] = true;
-//             }
-//         }
-//     }
-// }
-
-// int main(int argc, char const *argv[]) {
-//     init();
-//     //freopen("input.txt", "r", stdin);
-//     cin >> N;
-//     for (int i = 0; i < N; i++) 
-//         for (int j = 0; j < N; j++) 
-//             cin >> arr[i][j];
-    
-//     for (int i = 0; i < N; i++) 
-//         for (int j = 0; j < N; j++) 
-//             if (arr[i][j] == 9) 
-//                 BFS(i, j);
-            
-
-//     cout << cnt << endl;
-//     return 0;
-// }
-
-#include<iostream>
-#include<queue>
-#include<vector>
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<math.h>
-#include<algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
+typedef pair<int, int> pii;
 
-#define MAX 21
-#define MIN 987654321
-
-int N;
-int result = 0;
-int eat_count = 0;
-int baby_size = 2;
-int eat_distance;
-int arr[MAX][MAX];
-int visit[MAX][MAX];
-int Baby_x, Baby_y;
-vector <pair <pair<int, int>, int>> Eat;
-
-int dx[4] = { 0, 0, -1, 1 };
-int dy[4] = { -1, 1, 0, 0 };
-
-void BFS(int init_x, int init_y) {
-	eat_distance = MIN;
-	Eat.clear();
-	memset(visit, 0, sizeof(visit));
-	queue<pair<int, int>> que;
-	que.push(make_pair(init_x, init_y));
-
-	while (!que.empty()) {
-		int x = que.front().first; int y = que.front().second;
-		que.pop();
-
-		for (int i = 0; i < 4; i++) {
-			int nx = x + dx[i]; int ny = y + dy[i];
-			
-			if (0 > nx || N <= nx || 0 > ny || N <= ny) continue;
-
-			if (visit[nx][ny] == 0 && baby_size >= arr[nx][ny]) { // 자기보다 큰 물고기 자리 못감
-				visit[nx][ny] = visit[x][y] + 1;
-
-				if (arr[nx][ny] > 0 && arr[nx][ny] < baby_size) {// 자기보다 작은 물고기 꿀꺽
-					if (eat_distance >= visit[nx][ny]) {
-						eat_distance = visit[nx][ny];
-						Eat.push_back(make_pair(make_pair(eat_distance, nx), ny));
-					}
-				}
-				que.push(make_pair(nx, ny));
-			}
-		}
-	}
-}
+int N, shark = 2, eat, sec, MIN = 987654321;
+int board[21][21];
+int check[21][21];
+bool visited[21][21];
+int dy[4] = {-1, 1, 0, 0};
+int dx[4] = {0, 0, -1, 1};
+vector<pair<int, int>> v;
+bool flag = true;
 
 void init() {
-	ios::sync_with_stdio(false);
-	cin.tie(0); cout.tie(0);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 }
 
-int main() {
-	init();
-	cin >> N;
+bool cmp(const pii &a, const pii &b) {
+    if (a.first == b.first) {
+        return a.second < b.second;
+    }
+    return a.first < b.first;
+}
 
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			cin >> arr[i][j];
+void BFS(int _y, int _x) {
+    int edible = 0;
+    queue<pair<pair<int, int>, int>> q;
+    q.push({{_y, _x}, 1});
 
-			if (arr[i][j] == 9) {// 아기상어
-				arr[i][j] = 0;
-				Baby_x = i; Baby_y = j;
-			}
-		}
-	}
-	
-	while (1) {
-		BFS(Baby_x, Baby_y);
+    while (!q.empty()) { 
+        int y = q.front().first.first;
+        int x = q.front().first.second;
+        int t = q.front().second;
+        q.pop();
+        visited[y][x] = true;
 
-		if (Eat.empty()) break;
-		else {
-			sort(Eat.begin(), Eat.end());
-			eat_count++;
-			result += Eat[0].first.first;
-			arr[Eat[0].first.second][Eat[0].second] = 0;
-			Baby_x = Eat[0].first.second; Baby_y = Eat[0].second;
+        for (int i = 0; i < 4; i++) {
+            int ny = y + dy[i];
+            int nx = x + dx[i];
 
-			if (baby_size == eat_count) {
-				baby_size++; eat_count = 0;
-			}
-		}
-	}
-	cout << result;
-	return 0;
+            if (0 <= ny && ny < N && 0 <= nx && nx < N && !visited[ny][nx]) {
+                if (board[ny][nx] == 0 || board[ny][nx] == shark) {  // 크기가 빈칸이거나 같으면 지나가면서 방문 표기  
+                    q.push({{ny, nx}, t+1});
+                    visited[ny][nx] = true;
+                }
+                else if (0 < board[ny][nx] && board[ny][nx] < shark) {   // 크기가 작으면 잡아먹기 
+                    edible++;
+                    check[ny][nx] = t;                                   // 먹으러 가는데 걸리는 시간 
+                    visited[ny][nx] = true;
+                }
+            }
+        }
+    }
+    if (edible == 0) {  // 잡아먹을 수 있는 애가 없으면 스톱 
+        flag = false;
+        return;
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (check[i][j] != 0 && check[i][j] < MIN) {
+                MIN = check[i][j];
+                v.clear();
+                v.push_back({i, j});
+            }
+            else if (check[i][j] != 0 && check[i][j] == MIN) {
+                v.push_back({i, j});
+            }
+        }
+    }
+    if (v.size() > 1) {
+        sort(v.begin(), v.end(), cmp);
+    }
+    board[v[0].first][v[0].second] = 9;
+    eat++;
+    sec += check[v[0].first][v[0].second];
+}   
+
+int main(int argc, char const *argv[]) {
+    init();
+    cin >> N;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            cin >> board[i][j];
+        }
+    }
+    while (flag) {
+        MIN = 987654321;
+        v.clear();
+        memset(visited, 0, sizeof(visited));
+        memset(check, 0, sizeof(check));
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (board[i][j] == 9) {
+                    BFS(i, j);
+                    board[i][j] = 0;
+                    i = N; j = N;
+                }
+            }
+        }
+        if (eat == shark) {
+            shark++;
+            eat = 0;
+        }
+    }
+    cout << sec << endl;
+    return 0;
 }
