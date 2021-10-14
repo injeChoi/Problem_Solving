@@ -2,18 +2,47 @@
 using namespace std;
 typedef pair<int, int> pii;
 
-int N, high, low, ans, idx = 0;
-vector<pii> v;
-
-void init() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-}
-
-int main(int argc, char const *argv[]) {
-    init();
+stack<int> st;
+int N;
+int arr[1001];
+int pos, len;
+int first = 1001, last, longest;
+int result;
+ 
+int main() {
+    cin.tie(0);
+    ios::sync_with_stdio(0);
     cin >> N;
-    
+ 
+    while (N--) {
+        cin >> pos >> len;
+        arr[pos] = len;
+        if (last < pos) last = pos;
+        if (first > pos) first = pos;
+        if (len > arr[longest]) longest = pos;
+    }
+ 
+    for (int i=first; i<=longest; i++) {
+        if (arr[i]) {
+            if (st.empty()) st.push(arr[i]);
+            else if(arr[i] > st.top()) st.push(arr[i]);
+        }
+        result += st.top();
+    }
+ 
+    while (!st.empty()) {
+        st.pop();
+    }
+ 
+    for (int i=last; i>longest; i--) {
+        if (arr[i]) {
+            if (st.empty()) 
+                st.push(arr[i]);
+            else if(arr[i] > st.top()) 
+                st.push(arr[i]);
+        }
+        result += st.top();
+    }
+    cout << result << '\n';
     return 0;
 }
