@@ -26,6 +26,9 @@
 		62454FE826ECCE9800E35274 /* Swift_Codes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Swift_Codes; sourceTree = BUILT_PRODUCTS_DIR; };
 		62454FEB26ECCE9800E35274 /* 음양더하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "음양더하기.swift"; sourceTree = "<group>"; };
 		6298F7292751224C00FC6B7D /* 없는숫자더하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "없는숫자더하기.swift"; sourceTree = "<group>"; };
+		6298F72C2751B32E00FC6B7D /* 최소직사각형.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "최소직사각형.swift"; sourceTree = "<group>"; };
+		6298F72E2751B51200FC6B7D /* 나머지가1이되는수찾기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "나머지가1이되는수찾기.swift"; sourceTree = "<group>"; };
+		6298F7302751B7AD00FC6B7D /* 부족한금액계산하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "부족한금액계산하기.swift"; sourceTree = "<group>"; };
 		62C5905826ED9C9000A6F685 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		62CCC41C26EF728100FDA472 /* 내적.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "내적.swift"; sourceTree = "<group>"; };
 		62CCC41E26EF72A600FDA472 /* 소수만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "소수만들기.swift"; sourceTree = "<group>"; };
@@ -64,6 +67,9 @@
 			children = (
 				62454FEB26ECCE9800E35274 /* 음양더하기.swift */,
 				62C5905826ED9C9000A6F685 /* main.swift */,
+				6298F7302751B7AD00FC6B7D /* 부족한금액계산하기.swift */,
+				6298F72E2751B51200FC6B7D /* 나머지가1이되는수찾기.swift */,
+				6298F72C2751B32E00FC6B7D /* 최소직사각형.swift */,
 				62CCC41C26EF728100FDA472 /* 내적.swift */,
 				62CCC41E26EF72A600FDA472 /* 소수만들기.swift */,
 				62CCC41F26EF72C200FDA472 /* K번째수.swift */,
