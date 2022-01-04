@@ -29,12 +29,12 @@ def dijkstra(start):
             continue
         # 현재 노드와 연결된 노드 확인
         for adjacent in graph[now]:
-            # adjacent[0] = 도착 노드, adjacent[1] = 다음 노드로 가는 거리 
+            # adjacent[0] = 도착 노드, adjacent[1] = 다음 노드로 가는 거리 (cost)
             cost = dist + adjacent[1]
-            # 현재 노드를 거쳐서 가는게 기존 거리보다 짧다면 교체
+            # 도착 노드를 거쳐서 가는게 기존 거리(거치지 않고) 보다 짧다면 교체
             if cost < distance[adjacent[0]]:
                 distance[adjacent[0]] = cost 
-                # 우선순위 큐에 새로운 도착 노드로 이동하는 최단 거리와 도착 노드 넣기 
+                # 우선순위 큐에 도착 노드로 이동하는 최단 거리와 도착 노드 넣기 
                 heapq.heappush(q, (cost, adjacent[0]))
 
 # 다익스트라 알고리즘 수행 
