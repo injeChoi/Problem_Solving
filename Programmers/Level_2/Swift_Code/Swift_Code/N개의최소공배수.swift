@@ -29,4 +29,4 @@ func solution(_ arr:[Int]) -> Int {
     return answer
 }
 
-print(solution([1,2,3]))
+// print(solution([1,2,3]))
