@@ -7,7 +7,7 @@ result = 0
 
 def find_parent(x):
     if parent[x] != x:
-        parent[x] = find_parent(x)
+        parent[x] = find_parent(parent[x])
     return parent[x]
 
 def union_parent(a, b):
