@@ -1,6 +1,10 @@
 '''
 https://programmers.co.kr/learn/courses/30/lessons/92335
 
+1. 소수 찾기 알고리즘 구현
+2. 진수 전환 (앞부분의 0들 제거) 알고리즘 구현
+3. 0 기준으로 split하면 0 앞 뒤로의 숫자들이 나옴
+4. split된 숫자가 소수인지 판별 후 맞다면 답 1증가 
 '''
 
 def solution(n, k):
