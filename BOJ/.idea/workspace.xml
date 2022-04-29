@@ -26,7 +26,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4dee89fd-fec6-4a4d-ae4a-e9b961d34169" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BOJ_23288_주사위굴리기2.py" beforeDir="false" afterPath="$PROJECT_DIR$/BOJ_23288_주사위굴리기2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/사다리조작.py" beforeDir="false" afterPath="$PROJECT_DIR$/BOJ_15684_사다리조작.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,28 +56,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.BOJ_21609_상어중학교(2)">
-    <configuration name="BOJ_14499_주사위굴리기(2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BOJ" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BOJ_14499_주사위굴리기(2).py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.BOJ_23290_마법사상어와복제">
     <configuration name="BOJ_21608_상어초등학교" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BOJ" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,6 +120,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="BOJ_23290_마법사상어와복제" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BOJ" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BOJ_23290_마법사상어와복제.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="PS" type="PythonConfigurationType" factoryName="Python">
       <module name="BOJ" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.BOJ_21609_상어중학교(2)" />
+        <item itemvalue="Python.BOJ_23290_마법사상어와복제" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.BOJ_21609_상어중학교(2)" />
         <item itemvalue="Python.BOJ_21608_상어초등학교" />
         <item itemvalue="Python.BOJ_23288_주사위굴리기2" />
-        <item itemvalue="Python.BOJ_14499_주사위굴리기(2)" />
       </list>
     </recent_temporary>
   </component>
@@ -253,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651022375650</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=".">
+      <created>1651103581885</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1651103581885</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,38 +294,42 @@
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
     <state x="565" y="-617" key="#com.jetbrains.python.refactoring.move.PyMakeFunctionTopLevelDialog/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651036752746" />
-    <state width="467" height="929" key="GridCell.Tab.0.bottom" timestamp="1651059411946">
+    <state width="592" height="929" key="GridCell.Tab.0.bottom" timestamp="1651156624984">
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="467" height="929" key="GridCell.Tab.0.bottom/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651059411946" />
-    <state width="591" height="899" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1650555571876" />
-    <state width="467" height="929" key="GridCell.Tab.0.center" timestamp="1651059411945">
+    <state width="592" height="929" key="GridCell.Tab.0.bottom/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651156624984" />
+    <state width="419" height="899" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1651135446385" />
+    <state width="592" height="929" key="GridCell.Tab.0.center" timestamp="1651156624983">
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="467" height="929" key="GridCell.Tab.0.center/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651059411945" />
-    <state width="591" height="899" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1650555571876" />
-    <state width="467" height="929" key="GridCell.Tab.0.left" timestamp="1651059411945">
+    <state width="592" height="929" key="GridCell.Tab.0.center/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651156624983" />
+    <state width="419" height="899" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1651135446384" />
+    <state width="592" height="929" key="GridCell.Tab.0.left" timestamp="1651156624982">
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="467" height="929" key="GridCell.Tab.0.left/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651059411945" />
-    <state width="591" height="899" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1650555571876" />
-    <state width="467" height="929" key="GridCell.Tab.0.right" timestamp="1651059411946">
+    <state width="592" height="929" key="GridCell.Tab.0.left/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651156624982" />
+    <state width="419" height="899" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1651135446384" />
+    <state width="592" height="929" key="GridCell.Tab.0.right" timestamp="1651156624983">
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
-    <state width="467" height="929" key="GridCell.Tab.0.right/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651059411946" />
-    <state width="591" height="899" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1650555571876" />
+    <state width="592" height="929" key="GridCell.Tab.0.right/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651156624983" />
+    <state width="419" height="899" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1651135446385" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1650517057470">
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
     <state width="500" height="445" key="SwitcherDM/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1650517057470" />
-    <state x="320" y="-791" key="Vcs.Push.Dialog.v2" timestamp="1651022378646">
+    <state x="320" y="-791" key="Vcs.Push.Dialog.v2" timestamp="1651103584188">
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
-    <state x="320" y="-791" key="Vcs.Push.Dialog.v2/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651022378646" />
+    <state x="320" y="-791" key="Vcs.Push.Dialog.v2/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651103584188" />
     <state x="490" y="281" key="Vcs.Push.Dialog.v2/0.25.1680.1025@0.25.1680.1025" timestamp="1650619598775" />
     <state x="516" y="-610" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1650437071538">
       <screen x="-240" y="-1055" width="1920" height="1055" />
     </state>
     <state x="516" y="-610" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1650437071538" />
+    <state x="369" y="-808" width="700" height="530" key="recent.locations.popup" timestamp="1651143820778">
+      <screen x="-240" y="-1055" width="1920" height="1055" />
+    </state>
+    <state x="369" y="-808" width="700" height="530" key="recent.locations.popup/-240.-1055.1920.1055/0.25.1680.1025@-240.-1055.1920.1055" timestamp="1651143820778" />
   </component>
 </project>
