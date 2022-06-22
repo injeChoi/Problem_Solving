@@ -44,8 +44,5 @@ def solution():
         return visited[y][x]
             
     print(dfs(0, 0))
-    for v in visited:
-        print(v)
-    
     
 solution()
